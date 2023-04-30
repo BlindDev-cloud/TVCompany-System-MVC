@@ -1,19 +1,14 @@
 <!doctype html>
-<html
-    lang="en">
-<head>
-    <meta
-        charset="UTF-8">
-    <meta
-        name="viewport"
-        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta
-        http-equiv="X-UA-Compatible"
-        content="ie=edge">
-    <title>
-        Document</title>
-</head>
-<body>
-    <h1>Home page</h1>
+<html lang="en">
+<!-- Including header.php -->
+<?php \Core\View::render('partials/header') ?>
+
+<body class="bg-dark text-light">
+    <!-- Including nav -->
+    <?php \Core\View::render('partials/nav') ?>
+    <h1 class="display-1 text-center p-2 m-2">Home page</h1>
 </body>
+
+<!-- Including footer.php -->
+
 </html>
