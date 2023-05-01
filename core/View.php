@@ -13,7 +13,7 @@ class View
         $file = VIEW_DIR . '/' . $view . '.php';
 
         if (!is_readable($file)) {
-            dd('Page not found');
+            throw new BaseException('Internal Server Error', 500);
         }
 
         require $file;
