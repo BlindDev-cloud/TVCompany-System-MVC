@@ -15,7 +15,7 @@ class Connection
             $dsn = 'pgsql:host=' . Config::get('db.host') . ';'
                 . 'port=' . Config::get('db.port') . ';'
                 . 'dbname=' . Config::get('db.database') . ';'
-                . 'charset=utf8';
+                . 'client_encoding=utf8';
             $options = [
                 PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
                 PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
@@ -24,7 +24,8 @@ class Connection
             static::$connection = new PDO(
                 $dsn,
                 Config::get('db.user'),
-                Config::get('db.password')
+                Config::get('db.password'),
+                $options
             );
 
             return static::$connection;

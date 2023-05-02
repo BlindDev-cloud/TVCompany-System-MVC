@@ -4,7 +4,9 @@ FROM php:8.1-fpm
 
 RUN apt-get update && \
     apt-get upgrade -y && \
-    docker-php-ext-install pdo_mysql && \
+    apt-get install -y libpq-dev && \
+    docker-php-ext-configure pgsql -with-pgsql=/usr/local/pgsql && \
+    docker-php-ext-install pdo pdo_pgsql pgsql && \
     pecl install xdebug && \
     docker-php-ext-enable xdebug
 
