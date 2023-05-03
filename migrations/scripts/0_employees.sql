@@ -8,9 +8,5 @@ CREATE TABLE employees
     phone              varchar(20) UNIQUE  NOT NULL,
     date_of_birth      DATE                NOT NULL,
     date_of_employment DATE DEFAULT now(),
-    position           VARCHAR(100)        NOT NULL,
-
-    CONSTRAINT full_name UNIQUE (name,
-                                 surname,
-                                 patronymic)
+    position           VARCHAR(100)        NOT NULL
 );
