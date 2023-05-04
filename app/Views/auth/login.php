@@ -1,5 +1,9 @@
 <?php \Core\View::render('layout/header'); ?>
 
+<?php
+$data = \App\Helpers\SessionHelper::get('data');
+?>
+
 <div
     class="container">
     <div
@@ -53,7 +57,7 @@
                                 class="form-control"
                                 id="exampleInputPassword1">
                         </div>
-                           <?php //\Core\View::render('alerts'); ?>
+                           <?php \Core\View::render('alerts'); ?>
                         <button
                             type="submit"
                             class="btn btn-primary">

@@ -8,20 +8,17 @@ class SessionHelper
 {
     public static function isLoggedIn(): bool
     {
-        return !empty($_SESSION['user_data']);
+        return !empty($_SESSION['account_id']);
     }
 
     public static function id(): int|null
     {
-        return $_SESSION['user_data']['id'] ?? null;
+        return $_SESSION['account_id'] ?? null;
     }
 
-    public static function setUserData(int $id, mixed ...$args): void
+    public static function setAccount(int $id): void
     {
-        $_SESSION['user_data'] = array_merge(
-            ['id' => $id],
-            ...$args
-        );
+        $_SESSION['account_id'] = $id;
     }
 
     public static function setAlert(string $key, string $type, string $message): void

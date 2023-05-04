@@ -21,7 +21,9 @@
                         <a href="<?= url('auth/login'); ?>" class="nav-link">Login</a>
                     </li>
                 <?php else: ?>
-                
+                    <li class="nav-item">
+                        <a href="<?= url('auth/logout'); ?>" class="nav-link">Logout</a>
+                    </li>
                 <?php endif; ?>
             </ul>
         </div>
