@@ -8,3 +8,5 @@ Router::add('auth/login', ['controller' => 'App\Controllers\AuthController', 'ac
 Router::add('auth/verify', ['controller' => 'App\Controllers\AuthController', 'action' => 'verify', 'method' => 'POST']);
 Router::add('auth/logout', ['controller' => 'App\Controllers\AuthController', 'action' => 'logout', 'method' => 'GET']);
 
+Router::add('admin/dashboard', ['controller' => 'App\Controllers\Admin\DashboardController', 'action' => 'index', 'method' => 'GET']);
+

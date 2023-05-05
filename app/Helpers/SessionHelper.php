@@ -37,10 +37,14 @@ class SessionHelper
         $_SESSION['data'] = $data;
     }
 
-    public static function get(string $key): array
+    public static function get(string $key, bool $flush = true): array
     {
         $sessionData = !empty($_SESSION[$key]) ? $_SESSION[$key] : [];
-        self::flush($key);
+
+        if($flush){
+            self::flush($key);
+        }
+
         return $sessionData;
     }
 

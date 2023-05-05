@@ -21,3 +21,8 @@ function redirectBack(): void
     header('Location: ' . $referer);
     exit();
 }
+
+function isDashboard(): bool
+{
+    return in_array('dashboard', explode('/', $_SERVER['REQUEST_URI']));
+}
