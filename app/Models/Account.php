@@ -2,7 +2,9 @@
 
 namespace App\Models;
 
-class Account extends \Core\Model
+use Core\Model;
+
+class Account extends Model
 {
     protected static string $table = 'accounts';
 }

@@ -33,18 +33,6 @@ $data = \App\Helpers\SessionHelper::get('data');
                                 aria-describedby="emailHelp"
                                 value="<?= $data['email'] ?? ''; ?>"
                             >
-                            <div
-                                id="emailHelp"
-                                class="form-text">
-                                We'll
-                                never
-                                share
-                                your
-                                email
-                                with
-                                anyone
-                                else.
-                            </div>
                         </div>
                         <div
                             class="mb-3">
