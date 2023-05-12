@@ -22,7 +22,7 @@ function redirectBack(): void
     exit();
 }
 
-function isDashboard(): bool
+function isRoleRoute(): bool
 {
-    return in_array('dashboard', explode('/', $_SERVER['REQUEST_URI']));
+    return in_array($_SESSION['account']['role'], explode('/', $_SERVER['REQUEST_URI']));
 }

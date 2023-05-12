@@ -151,24 +151,4 @@ trait Queryable
 
         return $this;
     }
-
-    public static function innerJoin(string $matchTable, string $matchId, array $columns = ['*']): static
-    {
-        $model = new static();
-        $model->reset();
-
-        $selectedColumns = [];
-
-        foreach ($columns as $column) {
-            $selectedColumns[] = static::$table . '.' . $column;
-        }
-
-        static::$query = 'SELECT ' . implode(', ', $selectedColumns) . ' FROM ' . static::$table
-                            . ' INNER JOIN ' . $matchTable
-                            . ' ON ' . static::$table . '.' . $matchId . '=' . $matchTable . '.id';
-
-        $model->type = 'join';
-
-        return $model;
-    }
 }

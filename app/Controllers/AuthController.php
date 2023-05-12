@@ -11,6 +11,8 @@ use Core\View;
 
 class AuthController extends Controller
 {
+    protected ?array $fields = [];
+
     public function login(): void
     {
         View::render('auth/login');
@@ -24,9 +26,7 @@ class AuthController extends Controller
 
     public function verify(): void
     {
-        $fields = filter_input_array(INPUT_POST, $_POST, true);
-
-        AuthService::call($fields);
+        AuthService::call($this->fields);
 
         redirect();
     }
@@ -36,6 +36,8 @@ class AuthController extends Controller
         if ($action === 'login' && SessionHelper::isLoggedIn()) {
             return false;
         }
+
+        $this->fields = filter_input_array(INPUT_POST, $_POST, true);
 
         return parent::before($action);
     }

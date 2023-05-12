@@ -11,20 +11,9 @@
                 height="25"
                 class="d-inline-block align-text-top">
             Home</a>
-        <button
-            class="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarNav"
-            aria-controls="navbarNav"
-            aria-expanded="false"
-            aria-label="Toggle navigation">
-            <span
-                class="navbar-toggler-icon"></span>
-        </button>
         <?php if (\App\Helpers\SessionHelper::isLoggedIn()): ?>
-            <?php $role = \App\Helpers\SessionHelper::get('account', false)['role']; ?>
-            <?php if(isDashboard()): ?>
+            <?php $role = \App\Helpers\SessionHelper::get('account')['role']; ?>
+            <?php if(isRoleRoute()): ?>
                 <?php require_once VIEW_DIR . '/navs/' . $role . '.php'; ?>
             <?php endif; ?>
         <?php endif; ?>
