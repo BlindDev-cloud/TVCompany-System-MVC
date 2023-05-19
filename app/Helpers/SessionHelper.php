@@ -40,6 +40,12 @@ class SessionHelper
     public static function get(string $key): array
     {
         $sessionData = !empty($_SESSION[$key]) ? $_SESSION[$key] : [];
+        return $sessionData;
+    }
+
+    public static function getFlush(string $key): array
+    {
+        $sessionData = !empty($_SESSION[$key]) ? $_SESSION[$key] : [];
         self::flush($key);
         return $sessionData;
     }
@@ -59,6 +65,11 @@ class SessionHelper
         if (session_id()) {
             session_destroy();
         }
+    }
+
+    public static function isMatchingRole(string $role): bool
+    {
+        return $_SESSION['account']['role'] === $role;
     }
 
 }

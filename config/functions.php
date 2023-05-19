@@ -21,3 +21,8 @@ function redirectBack(): void
     header('Location: ' . $referer);
     exit();
 }
+
+function isRoleRoute(): bool
+{
+    return in_array($_SESSION['account']['role'], explode('/', $_SERVER['REQUEST_URI']));
+}
