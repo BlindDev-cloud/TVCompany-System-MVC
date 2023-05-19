@@ -7,12 +7,12 @@ CREATE TABLE employees
     phone              varchar(20) UNIQUE  NOT NULL,
     position           VARCHAR(100)        NOT NULL,
     CHECK ( position IN
-            ('Manager',
-             'Admin',
-             'Producer',
-             'Journalist',
-             'Editor',
-             'Sound operator',
-             'Video operator',
-             'Host') )
+            ('manager',
+             'admin',
+             'producer',
+             'journalist',
+             'editor',
+             'sound operator',
+             'video operator',
+             'host') )
 );

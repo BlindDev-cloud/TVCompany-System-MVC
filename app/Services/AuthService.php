@@ -35,10 +35,8 @@ class AuthService
             redirectBack();
         }
 
-        $role = Role::find($account->role_id);
-
         SessionHelper::setAccountData($account->id, [
-            'role' => $role->name,
+            'role' => $account->role,
             'employee' => $account->employee_id
         ]);
     }

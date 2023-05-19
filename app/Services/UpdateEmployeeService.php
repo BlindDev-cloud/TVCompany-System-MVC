@@ -31,6 +31,6 @@ class UpdateEmployeeService
             redirectBack();
         }
 
-        Employee::update($fields);
+        Employee::update($id, $fields);
     }
 }

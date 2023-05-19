@@ -45,11 +45,4 @@ class EmployeesController extends BaseController
 
         redirect('admin/employees');
     }
-
-    public function remove(): void
-    {
-        RemoveEmployeeService::call($this->fields);
-
-        redirect('admin/employees');
-    }
 }

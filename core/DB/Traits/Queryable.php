@@ -12,27 +12,28 @@ trait Queryable
     protected static string $table;
     protected static string $query;
     protected string $type;
-    protected array $where = [];
     protected string $orderBy = '';
 
     protected function reset(): void
     {
         static::$query = '';
         $this->type = '';
-        $this->where = [];
         $this->orderBy = '';
     }
 
-    public static function update(array $data): bool
+    public static function update(int $id, array $data): bool
     {
-        if (!isset($data['id'])) {
+        if (!isset($id)) {
             return false;
         }
 
         $query = 'UPDATE ' . static::$table . ' SET ' . static::buildPlaceholders($data) . ' WHERE id=:id';
         $statement = Connection::connect()->prepare($query);
 
-        $statement->execute($data);
+        $statement->execute([
+            'id' => $id,
+            ...$data
+        ]);
 
         return true;
     }
@@ -72,17 +73,19 @@ trait Queryable
             exit('WHERE can not be used in this query');
         }
 
-        $this->where[] = $field . $condition . $value;
+        if($this->type !== 'where'){
+            static::$query .= ' WHERE ' . $field . ' '  . $condition . ' \'' . $value . '\'';
+        }else{
+            static::$query .= ' OR ' . $field . ' '  . $condition . ' \'' . $value . '\'';
+        }
+
+        $this->type = 'where';
 
         return $this;
     }
 
     public function get(): array
     {
-        if (!empty($this->where)) {
-            static::$query .= ' WHERE ' . implode(' AND ', $this->where);
-        }
-
         if(!empty($this->orderBy)){
             static::$query .= $this->orderBy;
         }
@@ -148,6 +151,14 @@ trait Queryable
 
         $this->type = 'order';
         $this->orderBy = ' ORDER BY ' . $column . ' ' . $direction;
+
+        return $this;
+    }
+
+    public function join(string $matchTable, string $matchId, string $join = ''): static
+    {
+        $this->type = 'join';
+        static::$query .= ' ' . $join . ' JOIN '. $matchTable . ' ON ' . $matchTable . '.id=' . static::$table . '.' . $matchId;
 
         return $this;
     }

@@ -6,14 +6,14 @@ namespace App\Enums;
 
 enum Position: string
 {
-    case Manager = 'Manager';
-    case Admin = 'Admin';
-    case Producer = 'Producer';
-    case Journalist = 'Journalist';
-    case Editor = 'Editor';
-    case SoundOperator = 'Sound operator';
-    case VideoOperator = 'Video operator';
-    case Host = 'Host';
+    case Manager = 'manager';
+    case Admin = 'admin';
+    case Producer = 'producer';
+    case Journalist = 'journalist';
+    case Editor = 'editor';
+    case SoundOperator = 'sound operator';
+    case VideoOperator = 'video operator';
+    case Host = 'host';
 
     public static function all(): array
     {

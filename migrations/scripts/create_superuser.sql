@@ -1,7 +1,7 @@
 INSERT INTO accounts
 (email,
  password,
- role_id)
+ role)
 VALUES (:email,
         :password,
-        :role_id);
+        :role);

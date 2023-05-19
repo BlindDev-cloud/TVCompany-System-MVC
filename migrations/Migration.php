@@ -113,7 +113,7 @@ class Migration
         $statement->execute([
             'email' => $email,
             'password' => password_hash($password, PASSWORD_BCRYPT),
-            'role_id' => 1
+            'role' => 'admin'
         ]);
 
         $this->saveMigration('create_superuser.sql');

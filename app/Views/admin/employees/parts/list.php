@@ -31,22 +31,28 @@
                 <td><?= $employee->email ?></td>
                 <td><?= $employee->phone ?></td>
                 <td>
+                    <?php if(!empty($account)):  ?>
+                        <div class="d-inline-flex">
+                            <form action="<?= url('admin/accounts/assignment'); ?>"
+                                  method="POST">
+                                <input type="hidden"
+                                       name="employeeId"
+                                       class="form-control"
+                                       value="<?= $employee->id ?>">
+                                <input type="hidden"
+                                       name="accountId"
+                                       class="form-control"
+                                       value="<?= $account ?>">
+                                <button type="submit"
+                                        class="btn btn-secondary">
+                                    Assign
+                                </button>
+                            </form>
+                        </div>
+                    <?php else: ?>
                     <a href="<?= url('admin/employees/edit?id=' . $employee->id); ?>"
-                       class="btn btn-secondary">Edit</a>
-                    <div class="d-inline-flex ml-5">
-                        <form action="<?= url('admin/employees/remove'); ?>"
-                              method="POST">
-                            <input type="hidden"
-                                   name="id"
-                                   id="id"
-                                   class="form-control"
-                                   value="<?= $employee->id ?>">
-                            <button type="submit"
-                                    class="btn btn-danger">
-                                Remove
-                            </button>
-                        </form>
-                    </div>
+                       class="btn btn-primary">Edit</a>
+                    <?php endif; ?>
                 </td>
             </tr>
         <?php endforeach; ?>
