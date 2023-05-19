@@ -23,7 +23,3 @@ Router::add('admin/accounts/assignment', ['controller' => 'App\Controllers\Admin
 Router::add('admin/accounts/create', ['controller' => 'App\Controllers\Admin\AccountsController', 'action' => 'create', 'method' => 'GET']);
 Router::add('admin/accounts/store', ['controller' => 'App\Controllers\Admin\AccountsController', 'action' => 'store', 'method' => 'POST']);
 
-Router::add('admin/teams', ['controller' => 'App\Controllers\Admin\TeamsController', 'action' => 'index', 'method' => 'GET']);
-Router::add('admin/teams/create', ['controller' => 'App\Controllers\Admin\TeamsController', 'action' => 'create', 'method' => 'GET']);
-Router::add('admin/teams/store', ['controller' => 'App\Controllers\Admin\TeamsController', 'action' => 'store', 'method' => 'POST']);
-
