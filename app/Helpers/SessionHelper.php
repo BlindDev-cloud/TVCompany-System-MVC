@@ -16,6 +16,11 @@ class SessionHelper
         return $_SESSION['account']['id'] ?? null;
     }
 
+    public static function role(): string|null
+    {
+        return $_SESSION['account']['role'] ?? null;
+    }
+
     public static function setAccountData(int $id, mixed ...$args): void
     {
         $_SESSION['account'] = array_merge(

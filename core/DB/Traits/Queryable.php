@@ -67,16 +67,20 @@ trait Queryable
         return $model;
     }
 
-    public function where(string $field, mixed $value, string $condition = '='): static
+    public function where(string $field,
+                          mixed  $value,
+                          string $operator = '=',
+                          string $conjunction = 'OR'
+    ): static
     {
         if (!in_array($this->type, ['select', 'where', 'join'])) {
             exit('WHERE can not be used in this query');
         }
 
-        if($this->type !== 'where'){
-            static::$query .= ' WHERE ' . $field . ' '  . $condition . ' \'' . $value . '\'';
-        }else{
-            static::$query .= ' OR ' . $field . ' '  . $condition . ' \'' . $value . '\'';
+        if ($this->type !== 'where') {
+            static::$query .= ' WHERE ' . $field . ' ' . $operator . ' \'' . $value . '\'';
+        } else {
+            static::$query .= ' '. $conjunction .' ' . $field . ' ' . $operator . ' \'' . $value . '\'';
         }
 
         $this->type = 'where';
@@ -86,7 +90,7 @@ trait Queryable
 
     public function get(): array
     {
-        if(!empty($this->orderBy)){
+        if (!empty($this->orderBy)) {
             static::$query .= $this->orderBy;
         }
 
@@ -155,10 +159,13 @@ trait Queryable
         return $this;
     }
 
-    public function join(string $matchTable, string $matchId, string $join = ''): static
+    public function join(string $matchTable,
+                         string $matchId,
+                         string $join = ''
+    ): static
     {
         $this->type = 'join';
-        static::$query .= ' ' . $join . ' JOIN '. $matchTable . ' ON ' . $matchTable . '.id=' . static::$table . '.' . $matchId;
+        static::$query .= ' ' . $join . ' JOIN ' . $matchTable . ' ON ' . $matchTable . '.id=' . static::$table . '.' . $matchId;
 
         return $this;
     }
