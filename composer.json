@@ -1,0 +1,26 @@
+{
+    "name": "volkors/tv-company-system-mvc",
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/",
+            "Config\\": "config/",
+            "Core\\": "core/",
+            "Migrations\\": "migrations/"
+        },
+        "files": [
+            "config/functions.php"
+        ]
+    },
+    "authors": [
+        {
+            "name": "BlindDev",
+            "email": "korsikoff132@gmail.com"
+        }
+    ],
+    "require": {
+        "larapack/dd": "^1.1",
+        "vlucas/phpdotenv": "^5.5",
+        "ext-pdo": "*",
+        "ext-readline": "*"
+    }
+}
