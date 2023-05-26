@@ -23,3 +23,30 @@ Router::add('admin/accounts/assignment', ['controller' => 'App\Controllers\Admin
 Router::add('admin/accounts/create', ['controller' => 'App\Controllers\Admin\AccountsController', 'action' => 'create', 'method' => 'GET']);
 Router::add('admin/accounts/store', ['controller' => 'App\Controllers\Admin\AccountsController', 'action' => 'store', 'method' => 'POST']);
 
+
+Router::add('manager/dashboard', ['controller' => 'App\Controllers\Manager\DashboardController', 'action' => 'index', 'method' => 'GET']);
+
+Router::add('manager/clients', ['controller' => 'App\Controllers\Manager\ClientsController', 'action' => 'index', 'method' => 'GET']);
+Router::add('manager/clients/register', ['controller' => 'App\Controllers\Manager\ClientsController', 'action' => 'register', 'method' => 'GET']);
+Router::add('manager/clients/store', ['controller' => 'App\Controllers\Manager\ClientsController', 'action' => 'store', 'method' => 'POST']);
+Router::add('manager/clients/find_client', ['controller' => 'App\Controllers\Manager\ClientsController', 'action' => 'findClient', 'method' => 'GET']);
+Router::add('manager/clients/get_client', ['controller' => 'App\Controllers\Manager\ClientsController', 'action' => 'getClient', 'method' => 'POST']);
+
+Router::add('manager/orders', ['controller' => 'App\Controllers\Manager\OrdersController', 'action' => 'index', 'method' => 'GET']);
+Router::add('manager/orders/create', ['controller' => 'App\Controllers\Manager\OrdersController', 'action' => 'create', 'method' => 'GET']);
+Router::add('manager/orders/store', ['controller' => 'App\Controllers\Manager\OrdersController', 'action' => 'store', 'method' => 'POST']);
+Router::add('manager/orders/start', ['controller' => 'App\Controllers\Manager\OrdersController', 'action' => 'start', 'method' => 'GET']);
+Router::add('manager/orders/deny', ['controller' => 'App\Controllers\Manager\OrdersController', 'action' => 'deny', 'method' => 'GET']);
+Router::add('manager/orders/complete', ['controller' => 'App\Controllers\Manager\OrdersController', 'action' => 'complete', 'method' => 'GET']);
+
+
+Router::add('producer/dashboard', ['controller' => 'App\Controllers\Producer\DashboardController', 'action' => 'index', 'method' => 'GET']);
+
+Router::add('producer/orders', ['controller' => 'App\Controllers\Producer\OrdersController', 'action' => 'index', 'method' => 'GET']);
+Router::add('producer/orders/add_plan', ['controller' => 'App\Controllers\Producer\OrdersController', 'action' => 'add', 'method' => 'GET']);
+Router::add('producer/orders/store_plan', ['controller' => 'App\Controllers\Producer\OrdersController', 'action' => 'store', 'method' => 'POST']);
+
+Router::add('producer/releases/upload', ['controller' => 'App\Controllers\Producer\ReleasesController', 'action' => 'upload', 'method' => 'GET']);
+Router::add('producer/releases/store', ['controller' => 'App\Controllers\Producer\ReleasesController', 'action' => 'store', 'method' => 'POST']);
+
+
