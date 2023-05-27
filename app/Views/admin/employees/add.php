@@ -66,16 +66,18 @@ $data = \App\Helpers\SessionHelper::getFlush('data');
                                 class="mb-3">
                                 <label
                                     for="phone"
-                                    class="form-label">Phone
-                                    number (+38)</label>
-                                <input
-                                    type="text"
-                                    name="phone"
-                                    class="form-control"
-                                    id="phone"
-                                    aria-describedby="emailHelp"
-                                    value="<?= $data['phone'] ?? ''; ?>"
-                                >
+                                    class="form-label">Phone number</label>
+                                <div class="row ml-1 d-flex align-items-center">
+                                        +38&nbsp;
+                                        <input
+                                            type="text"
+                                            name="phone"
+                                            class="form-control col-11"
+                                            id="phone"
+                                            aria-describedby="emailHelp"
+                                            value="<?= $data['phone'] ?? ''; ?>"
+                                        >
+                                </div>
                             </div>
                             <div
                                 class="mb-3">
