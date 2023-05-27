@@ -11,7 +11,7 @@
             Role
         </th>
         <th scope="col">
-            Employee id
+            Employee
         </th>
         <th scope="col">
             Actions
@@ -25,7 +25,7 @@
                 <th scope="row"><?= $account->id ?></th>
                 <td><?= $account->email ?></td>
                 <td><?= $account->role ?></td>
-                <td><?= (isset($account->employee_id)) ? $account->name . ' ' . $account->surname : 'Unsigned' ?></td>
+                <td><?= (isset($account->name)) ? $account->name . ' ' . $account->surname : 'Unsigned' ?></td>
                 <td>
                     <a href="<?= url('admin/accounts/assigning?id=' . $account->id); ?>"
                        class="btn btn-secondary">Assign employee</a>

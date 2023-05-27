@@ -17,12 +17,10 @@ class AccountsController extends BaseController
     public function index(): void
     {
         $accounts = Account::select([
-            'employees.id',
             'employees.name',
             'employees.surname',
             'accounts.id',
             'accounts.email',
-            'accounts.employee_id',
             'accounts.role'
         ])
             ->join('employees', 'employee_id', 'LEFT')

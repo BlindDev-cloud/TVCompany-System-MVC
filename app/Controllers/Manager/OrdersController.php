@@ -37,12 +37,9 @@ class OrdersController extends BaseController
         }
 
         $producers = Account::select([
-            'employees.id',
             'employees.name',
             'employees.surname',
             'accounts.id',
-            'accounts.employee_id',
-            'accounts.role'
         ])
             ->join('employees', 'employee_id', 'INNER')
             ->where('role', 'producer')

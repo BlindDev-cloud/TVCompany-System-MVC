@@ -60,7 +60,7 @@ $data = \App\Helpers\SessionHelper::getFlush('data');
                                         name="producer_id"
                                         id="producer_id">
                                     <option
-                                            selected><?= $data['producer_id'] ?? 'Select producer'; ?></option>
+                                            selected>Select producer</option>
                                     <?php foreach ($producers as $producer): ?>
                                         <option
                                                 value="<?= $producer->id; ?>">
