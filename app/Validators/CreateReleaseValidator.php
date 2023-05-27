@@ -6,7 +6,8 @@ class CreateReleaseValidator extends Base\BaseValidator
 {
     protected array $allowedMimes = [
         'video/mp4',
-        'video/quicktime'
+        'video/quicktime',
+        'video/x-matroska'
     ];
 
     public function validateVideo(array $file): bool
