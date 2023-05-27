@@ -3,4 +3,5 @@
 composer.lock
 vendor/
 docker/postgres
+public/assets/storage
 .env
