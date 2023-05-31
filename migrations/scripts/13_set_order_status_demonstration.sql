@@ -1,4 +1,4 @@
-CREATE OR REPLACE FUNCTION order_status_demonstration()
+CREATE OR REPLACE FUNCTION set_order_status_demonstration()
     RETURNS TRIGGER AS
 $$
 BEGIN
