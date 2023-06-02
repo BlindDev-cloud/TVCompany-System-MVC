@@ -78,7 +78,7 @@
                                             class="form-control col-11"
                                             id="phone"
                                             aria-describedby="emailHelp"
-                                            value="<?= $data['phone'] ?? ''; ?>"
+                                            value="<?= $employee->phone ?>"
                                         >
                                 </div>
                             </div>
